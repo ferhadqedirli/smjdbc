@@ -8,4 +8,12 @@ public enum CurrencyType {
     CurrencyType(String logo) {
         this.logo = logo;
     }
+
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
+    }
 }

@@ -13,4 +13,5 @@ public interface ProductDao {
     Product getProductByBarcode(Integer barcode);
     List<Product> getAllProductByCategory(Integer categoryId);
     List<Product> getAllProductByName(String productName);
+    List<Product> getAllProductByCategoryName(String categoryName);
 }

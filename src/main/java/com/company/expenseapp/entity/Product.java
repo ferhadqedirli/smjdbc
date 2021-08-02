@@ -1,6 +1,5 @@
 package com.company.expenseapp.entity;
 
-
 public class Product {
     private Integer productId;
     private Integer barcode;
@@ -12,9 +11,6 @@ public class Product {
     private MeasurementType measurement;
     private int state;
 
-    public Product() {
-    }
-
     public Product(Integer barcode, Integer categoryId, String productName, Double purchasePrice, Double sellingPrice, CurrencyType currency, MeasurementType measurement) {
         this.barcode = barcode;
         this.categoryId = categoryId;
@@ -25,15 +21,13 @@ public class Product {
         this.measurement = measurement;
     }
 
-    public Product(Integer productId, Integer barcode, Integer categoryId, String productName, Double purchasePrice, Double sellingPrice, CurrencyType currency, MeasurementType measurement) {
+    public Product(Integer productId, Integer barcode, Integer categoryId, String productName, Double purchasePrice, Double sellingPrice) {
         this.productId = productId;
         this.barcode = barcode;
         this.categoryId = categoryId;
         this.productName = productName;
         this.purchasePrice = purchasePrice;
         this.sellingPrice = sellingPrice;
-        this.currency = currency;
-        this.measurement = measurement;
     }
 
     public Integer getProductId() {
@@ -117,8 +111,8 @@ public class Product {
                 ", productName='" + productName + '\'' +
                 ", purchasePrice=" + purchasePrice +
                 ", sellingPrice=" + sellingPrice +
-                ", currency=" + currency +
-                ", measurement=" + measurement +
+                ", currency=" + currency.getLogo() +
+                ", measurement=" + measurement.getName() +
                 '}';
     }
 }
