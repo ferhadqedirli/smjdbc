@@ -34,7 +34,7 @@ public class CategoryDaoImpl implements CategoryDao, Connectable {
     }
 
     @Override
-    public boolean remove(int id) {
+    public boolean remove(Integer id) {
         Category category = getById(id);
         category.setState(0);
         return update(category);
@@ -57,11 +57,12 @@ public class CategoryDaoImpl implements CategoryDao, Connectable {
     }
 
     @Override
-    public Category getById(int id) {
+    public Category getById(Integer id) {
         Category category = null;
         try (Connection connection = connect()) {
-            String query = "SELECT * FROM CATEGORY WHERE STATE = 1 AND ID = " + id;
+            String query = "SELECT * FROM CATEGORY WHERE STATE = 1 AND ID = ?";
             PreparedStatement psmt = connection.prepareStatement(query);
+            psmt.setInt(1, id);
             ResultSet rs = psmt.executeQuery();
             while (rs.next()) {
                 category = getCategory(rs);
@@ -77,8 +78,9 @@ public class CategoryDaoImpl implements CategoryDao, Connectable {
     public Category getByName(String categoryName) {
         Category category = null;
         try (Connection connection = connect()) {
-            String query = "SELECT * FROM CATEGORY WHERE STATE = 1 AND CATEGORY_NAME = '" + categoryName + "'";
+            String query = "SELECT * FROM CATEGORY WHERE STATE = 1 AND CATEGORY_NAME = ?";
             PreparedStatement psmt = connection.prepareStatement(query);
+            psmt.setString(1, categoryName);
             ResultSet rs = psmt.executeQuery();
             while (rs.next()) {
                 category = getCategory(rs);
