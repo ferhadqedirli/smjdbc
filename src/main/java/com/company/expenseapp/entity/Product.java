@@ -11,16 +11,6 @@ public class Product {
     private MeasurementType measurement;
     private int state;
 
-    public Product(Integer barcode, Integer categoryId, String productName, Double purchasePrice, Double sellingPrice, CurrencyType currency, MeasurementType measurement) {
-        this.barcode = barcode;
-        this.categoryId = categoryId;
-        this.productName = productName;
-        this.purchasePrice = purchasePrice;
-        this.sellingPrice = sellingPrice;
-        this.currency = currency;
-        this.measurement = measurement;
-    }
-
     public Product(Integer productId, Integer barcode, Integer categoryId, String productName, Double purchasePrice, Double sellingPrice) {
         this.productId = productId;
         this.barcode = barcode;

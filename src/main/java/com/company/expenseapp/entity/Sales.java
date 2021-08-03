@@ -1,6 +1,6 @@
 package com.company.expenseapp.entity;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Sales {
     private Integer salesId;
@@ -11,14 +11,11 @@ public class Sales {
     private Double price;
     private int state;
 
-    public Sales() {
-    }
-
-    public Sales(Date salesDate, Integer productId, Double quantity, CurrencyType currency, Double price) {
+    public Sales(Integer salesId, Date salesDate, Integer productId, Double quantity, Double price) {
+        this.salesId = salesId;
         this.salesDate = salesDate;
         this.productId = productId;
         this.quantity = quantity;
-        this.currency = currency;
         this.price = price;
     }
 

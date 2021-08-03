@@ -169,7 +169,7 @@ public class ProductDaoImpl implements ProductDao, Connectable {
                     "P.PRODUCT_ID, P.BARCODE, P.PRODUCT_NAME, P.PURCHASE_PRICE, P.SELLING_PRICE, P.CURRENCY, P.MEASUREMENT, C.ID AS CATEGORY_ID, C.CATEGORY_NAME " +
                     "FROM PRODUCT P " +
                     "LEFT JOIN CATEGORY C ON P.CATEGORY_ID = C.ID WHERE P.STATE = 1 AND PRODUCT_NAME = ?");
-            psmt.setString(1, productName);
+            psmt.setString(1, productName.trim());
             ResultSet rs = psmt.executeQuery();
 
             while (rs.next()) {
@@ -190,7 +190,7 @@ public class ProductDaoImpl implements ProductDao, Connectable {
                     "P.PRODUCT_ID, P.BARCODE, P.PRODUCT_NAME, P.PURCHASE_PRICE, P.SELLING_PRICE, P.CURRENCY, P.MEASUREMENT, C.ID AS CATEGORY_ID, C.CATEGORY_NAME " +
                     "FROM PRODUCT P " +
                     "LEFT JOIN CATEGORY C ON P.CATEGORY_ID = C.ID WHERE P.STATE = 1 AND CATEGORY_NAME = ?");
-            psmt.setString(1, categoryName);
+            psmt.setString(1, categoryName.trim());
             ResultSet rs = psmt.executeQuery();
 
             while (rs.next()) {
